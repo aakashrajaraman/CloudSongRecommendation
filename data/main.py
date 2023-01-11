@@ -132,7 +132,7 @@ def run():
                 {'name': song3, 'year': year3},
                 {'name': song4, 'year': year4},
                 {'name': song5, 'year': year5}],  data)
-    return render_template('index.html', res = res, len = len(res))
+    return render_template('index.html', res = res)
     
 
 if __name__ == '__main__':
