@@ -157,6 +157,15 @@ label.light {
         
         </div>
       </div>
+      <h1>Your Reccomendations are: </h1>
+      <section>
+      
+              <div class="box">
+                  {%for i in range(0, len)%}
+                  <li>{{res[i]}}</li>
+                  {%endfor%}
+                </div>
+        </section>
       
     </body>
 </html>
