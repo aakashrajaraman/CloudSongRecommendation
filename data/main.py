@@ -15,12 +15,13 @@ warnings.filterwarnings("ignore")
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from collections import defaultdict
+import fsspec
 
 from flask import Flask, render_template
 
 app = Flask(__name__)
-data = pd.read_csv('D:/Backup/Desktop/programs/musicre/data/data.csv')
-genre_data = pd.read_csv('D:/Backup/Desktop/programs/musicre/data/data_by_genres.csv')
+data = pd.read_csv('gs://song_recommendation_data/data.csv')
+genre_data = pd.read_csv('gs://song_recommendation_data/data_by_genres.csv')
 cluster_pipeline = Pipeline([('scaler', StandardScaler()), ('kmeans', KMeans(n_clusters=10))])
 X = genre_data.select_dtypes(np.number)
 cluster_pipeline.fit(X)
